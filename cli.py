@@ -32,7 +32,7 @@ if __name__ == '__main__':
     while winner == None:
 
         print("Take a turn!")
-        
+
         # Show the board to the user.
         print(board)
 
@@ -58,4 +58,3 @@ if __name__ == '__main__':
         # check if there is winner
         winner = check_winner(board)
     
-    print(winner)
