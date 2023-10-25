@@ -1,7 +1,6 @@
 # This file contains the Command Line Interface (CLI) for
 # the Tic-Tac-Toe game. This is where input and output happens.
 # For core game logic, see logic.py.
-#copy from 509 starter code
 
 from logic import make_empty_board
 
