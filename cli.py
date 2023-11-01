@@ -2,7 +2,10 @@
 # the Tic-Tac-Toe game. This is where input and output happens.
 # For core game logic, see logic.py.
 
-from logic import make_empty_board, get_winner, other_player, input_update_board
+from logic import make_empty_board
+from logic import get_winner
+from logic import other_player
+from logic import input_update_board
 
 # Reminder to check all the tests
 
