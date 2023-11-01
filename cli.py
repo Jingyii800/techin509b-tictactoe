@@ -2,10 +2,7 @@
 # the Tic-Tac-Toe game. This is where input and output happens.
 # For core game logic, see logic.py.
 
-from logic import make_empty_board
-from logic import get_winner
-from logic import other_player
-from logic import input_update_board
+from logic import make_empty_board, get_winner, other_player, input_update_board
 
 # Reminder to check all the tests
 
@@ -14,7 +11,6 @@ if __name__ == '__main__':
     winner = None
     player = 'X'
     while winner == None:
-
         print("Take a turn!")
 
         # Show the board to the user.
@@ -22,7 +18,6 @@ if __name__ == '__main__':
         
         # input the move and upda
         input_update_board(player, board)
-
         # check if there is winner
         winner = get_winner(board)
         if winner:
@@ -34,7 +29,6 @@ if __name__ == '__main__':
 
         # input the move and upda
         input_update_board(player, board)
-
         # check if there is winner
         winner = get_winner(board)
         if winner:

@@ -40,6 +40,7 @@ def other_player(player):
         player = 'X'
     return player 
 
+
 def input_update_board(player, board):
     #  Input a move from the player.
     row_player = int(input("Put %s in row:" %player))
