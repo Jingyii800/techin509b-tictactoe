@@ -3,58 +3,43 @@
 # For core game logic, see logic.py.
 
 from logic import make_empty_board
-
-
-def check_winner(board):
-    #check rows
-    for row in board:
-        if len(set(row)) == 1 and row[0]!= None:
-            return row[0]
-    #check columns
-    for i in range(3):
-        col = [board[j][i] for j in range(len(board))]
-        if len(set(col)) == 1 and board[0][i] != None:
-            return board[0][i]
-    #check diagnols
-    top_left_to_bot_right = [board[i][i] for i in range(len(board))]
-    if len(set(top_left_to_bot_right)) == 1 and board[0][0]!= None:
-        return board[0][0]
-    top_right_to_bot_left = [board[i][len(board)-1 - i] for i in range(len(board))]
-    if len(set(top_right_to_bot_left)) == 1 and board[0][len(board)-1] != None :
-        return board[0][len(board)-1]
-    
+from logic import get_winner
+from logic import other_player
+from logic import input_update_board
 
 # Reminder to check all the tests
 
 if __name__ == '__main__':
     board = make_empty_board()
     winner = None
+    player = 'X'
     while winner == None:
 
         print("Take a turn!")
 
         # Show the board to the user.
         print(board)
-
-        #  Input a move from the player.
-        row_x = int(input("Put X in row:"))
-        col_x = int(input("Put X in col:"))
-
-        #  Update the board.
-        if board[row_x][col_x]== None:
-            board[row_x][col_x] = 'X'
+        
+        # input the move and upda
+        input_update_board(player, board)
 
         # check if there is winner
-        winner = check_winner(board)
+        winner = get_winner(board)
         if winner:
+             print(winner, "won")
              break
 
         # Update who's turn it is.
-        row_o = int(input("Put O in row:"))
-        col_o = int(input("Put O in col:"))
-        if board[row_o][col_o]== None:
-            board[row_o][col_o] = 'O'
+        player = other_player(player)
+
+        # input the move and upda
+        input_update_board(player, board)
 
         # check if there is winner
-        winner = check_winner(board)
+        winner = get_winner(board)
+        if winner:
+             print(winner, "won")
+
+        # Update who's turn it is.
+        player = other_player(player)
     
