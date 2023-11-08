@@ -1,3 +1,4 @@
+# NOTHING WITH ASSIGNMENT 6 , preparation for ASSIGNMENT 7
 # class Player:
 #     def __init__(self, symbol):
 #         self.symbol = symbol
