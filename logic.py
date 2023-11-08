@@ -34,10 +34,7 @@ def get_winner(board):
 
 def other_player(player):
     """Given the character for a player, returns the other player."""
-    if player == 'X':
-        player = 'O'
-    else:
-        player = 'X'
+    player = 'O'  if player == 'X' else player = 'X'
     return player 
 
 
