@@ -46,5 +46,8 @@ def input_update_board(player, board):
     row_player = int(input("Put %s in row:" %player))
     col_player = int(input("Put %s in col:" %player))
     #  Update the board.
-    if board[row_player][col_player]== None:
+    try:
         board[row_player][col_player] = player
+    except (ValueError, IndexError):
+        print("Invalid input. Please enter numbers between 0 and 2.")
+
