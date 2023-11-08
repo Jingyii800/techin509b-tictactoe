@@ -14,9 +14,8 @@ if __name__ == '__main__':
     winner = None
     player = 'X'
     while winner == None:
-        print("Take a turn!")
-
         # Show the board to the user.
+        print("Take a turn!")
         print(board)
         
         # input the move and upda
@@ -31,8 +30,8 @@ if __name__ == '__main__':
 
         # Update who's turn it is.
         player = other_player(player)
-        print("Take a turn!")
         # Show the board to the user.
+        print("Take a turn!")
         print(board)
 
         # input the move and upda
@@ -41,8 +40,8 @@ if __name__ == '__main__':
         winner = get_winner(board)
         if winner:
              # print the final board
-             print(board)
              print(winner, "won")
+             print(board)
 
         # Update who's turn it is.
         player = other_player(player)
