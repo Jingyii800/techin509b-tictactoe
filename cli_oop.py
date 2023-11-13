@@ -1,9 +1,9 @@
 # This file contains the Command Line Interface (CLI) for OOP designed Tic-tac-toe
 # the Tic-Tac-Toe game. This is where input and output happens.
 
-from player import BotPlayer, HumanPlayer
-from board import Board
-from game import Game
+from oop_class.player import BotPlayer, HumanPlayer
+from oop_class.board import Board
+from oop_class.game import Game
 
 # Reminder to check all the tests
 
