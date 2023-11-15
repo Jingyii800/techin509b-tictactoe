@@ -18,8 +18,15 @@ class Game:
             row, col = self.current_player.move(self.board)
             self.board.update_table(row, col, self.current_player)
             self.board.get_winner()
+            # get winner
             if self.board.winner:
                 self.board.print_board()
                 print(self.board.winner, "won")
                 break
+            # or check if draw
+            elif self.board.is_draw():
+                self.board.print_board()
+                print("It's a draw!")
+                break
+
             self.switch_player()

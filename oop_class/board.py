@@ -46,3 +46,10 @@ class Board:
         if len(set(top_right_to_bot_left)) == 1 and self.board[0][len(self.board)-1] != None :
             self.winner = self.board[0][len(self.board)-1]
             return
+        
+    def is_draw(self): # check if it's draw
+        for row in self.board:
+            for cell in row:
+                if cell is None:
+                    return False
+        return True
