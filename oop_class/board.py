@@ -17,13 +17,8 @@ class Board:
         print()
 
     def update_table(self, row, col, player):
-        try:
-            if self.board[row][col] == None:
+        if self.board[row][col] == None:
                 self.board[row][col] = player.symbol
-            else:
-                print("Invalid move. You should go to empty position")
-        except (ValueError, IndexError):
-            print("Invalid input. Please enter numbers between 0 and 2.")
 
     def get_winner(self):
         #check rows
