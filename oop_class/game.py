@@ -11,13 +11,17 @@ class Game:
         else:
             self.current_player = self.player1
     
+    def play_turn(self, row, col):
+        self.board.update_board(row, col, self.current_player)
+        self.board.check_winner()
+        self.switch_player()
+
     def play(self):
         while self.board.winner is None:
             print("Take a Turn")
             self.board.print_board()
             row, col = self.current_player.move(self.board)
-            self.board.update_table(row, col, self.current_player)
-            self.board.get_winner()
+            self.play_turn(row, col)
             # get winner
             if self.board.winner:
                 self.board.print_board()
@@ -28,5 +32,3 @@ class Game:
                 self.board.print_board()
                 print("It's a draw!")
                 break
-
-            self.switch_player()

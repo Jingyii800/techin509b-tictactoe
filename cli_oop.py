@@ -5,7 +5,6 @@ from oop_class.player import BotPlayer, HumanPlayer
 from oop_class.board import Board
 from oop_class.game import Game
 
-# Reminder to check all the tests
 
 if __name__ == '__main__':
     # initialize the board
@@ -18,5 +17,5 @@ if __name__ == '__main__':
     game = Game(player1, player2, board)
     # game start
     game.play()
-    
+
     
