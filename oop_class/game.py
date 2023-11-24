@@ -1,3 +1,5 @@
+import time
+
 class Game:
     def __init__(self, player1, player2, board):
         self.player1 = player1
@@ -17,11 +19,17 @@ class Game:
         self.switch_player()
 
     def play(self):
+        from cli_oop import log_game_result
+        # logging
+        start_time = time.time()
+        move_count = 0
         while self.board.winner is None:
             print("Take a Turn")
             self.board.print_board()
             row, col = self.current_player.move(self.board)
             self.play_turn(row, col)
+            # count move to log
+            move_count += 1
             # get winner
             if self.board.winner:
                 self.board.print_board()
@@ -32,3 +40,8 @@ class Game:
                 self.board.print_board()
                 print("It's a draw!")
                 break
+        
+        end_time = time.time()
+        game_duration = end_time - start_time
+        winner_symbol = self.board.winner if self.board.winner else "Draw"
+        log_game_result(self.player1, self.player2, winner_symbol, game_duration, move_count)

@@ -4,7 +4,10 @@
 from oop_class.player import BotPlayer, HumanPlayer
 from oop_class.board import Board
 from oop_class.game import Game
+import time
 
+import csv
+import datetime
 
 if __name__ == '__main__':
     # initialize the board
@@ -18,4 +21,9 @@ if __name__ == '__main__':
     # game start
     game.play()
 
-    
+
+# for logging  
+def log_game_result(player1, player2, winner, game_duration, total_moves):
+    with open('logs/game_log.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([datetime.datetime.now(), player1.symbol, player2.symbol, winner, game_duration, total_moves])
