@@ -10,20 +10,25 @@ import csv
 import datetime
 
 if __name__ == '__main__':
-    # initialize the board
-    board = Board() 
-    # choose game type, single or 2 players
-    game_type = int(input("Please enter 1 for single player or 2 for two players: "))
-    player1 = HumanPlayer('X')
-    player2 = BotPlayer('O') if game_type == 1 else HumanPlayer('O')
-    # initialize the game
-    game = Game(player1, player2, board)
-    # game start
-    game.play()
+    # for week 10 assignment, play the game 30 times:
+    for _ in range(30):
+        # initialize the board
+        board = Board() 
+        # choose game type, single or 2 players
+        # game_type = int(input("Please enter 1 for single player or 2 for two players: "))
+        # player1 = HumanPlayer('X')
+        # player2 = BotPlayer('O') if game_type == 1 else HumanPlayer('O')
+        # for week 10 assignment, use to bot to play 30 games
+        player1 = BotPlayer('X')
+        player2 = BotPlayer('O')
+        # initialize the game
+        game = Game(player1, player2, board)
+        # game start
+        game.play()
 
 
 # for logging  
-def log_game_result(player1, player2, winner, game_duration, total_moves):
-    with open('logs/game_log.csv', 'a', newline='') as file:
+def log_game_result(player1, player2, winner, total_moves, first_move, first_move_result):
+    with open('logs/game_logs.csv', 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([datetime.datetime.now(), player1.symbol, player2.symbol, winner, game_duration, total_moves])
+        writer.writerow([datetime.datetime.now(), player1.symbol, player2.symbol, winner, total_moves, first_move, first_move_result])
