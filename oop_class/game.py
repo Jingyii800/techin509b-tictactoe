@@ -19,7 +19,7 @@ class Game:
     
     def play_turn(self, row, col):
         if not self.check_first_move:
-            self.first_move = row * 3 + col # change it to index from 1-9
+            self.first_move = row * 3 + col + 1 # change it to index from 1-9
             self.check_first_move = True
         self.board.update_board(row, col, self.current_player)
         self.board.check_winner()
@@ -45,7 +45,7 @@ class Game:
                 self.board.print_board()
                 print("It's a draw!")
                 break
-            
+
         # check if the first player won the game or not
         if self.board.winner == self.player1.symbol:
             first_move_result = "Win"
